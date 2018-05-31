@@ -4,6 +4,7 @@
 # optimal solution, but may be very slow!
 import numpy as np
 
+
 class BruteForce:
     start_x = -1
     end_x = 2
@@ -12,15 +13,15 @@ class BruteForce:
         return -1 * (x - 1) * (x - 1) + 2
 
     def max(self):
-        max = self.f(self.start_x)
+        max_f = self.f(self.start_x)
         max_x = self.start_x
         dx = 0.1
 
         for i in np.arange(self.start_x, self.end_x + dx, dx):
-            currentf = self.f(i)
-            if currentf > max:
+            current_f = self.f(i)
+            if current_f > max_f:
                 max_x = i
-                max = currentf
-                print("x: %f  max: %f" % (max_x, max))
+                max_f = current_f
+                print("x: %f  max_f: %f" % (max_x, max_f))
 
-        return (max_x, max)
+        return max_x, max_f
